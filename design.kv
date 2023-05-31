@@ -1,0 +1,116 @@
+#:kivy 2.2.0
+
+<ui>:
+    MDScreen:
+        name: 'principal_screen'
+        MDBottomNavigation:
+            MDBottomNavigationItem:
+                name: 'text_screen'
+                text: 'Text'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: [20, 10, 20, 10]
+                    spacing: '30dp'
+                    MDCard:
+                        radius: '10dp'
+                        size_hint: .5, .01
+                        pos_hint: {'center_x': .5}
+                        md_bg_color: '#333333'
+                        MDLabel:
+                            text: 'Traductor'
+                            halign: 'center'
+                    MDGridLayout:
+                        cols: 1
+                        rows: 3
+                        size_hint: .8, .01
+                        pos_hint: {'center_x': .5}
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            Spinner:
+                                id: in_language
+                                text: 'From language'
+                                size_hint: None, None
+                                size: 200, 50
+                                pos_hint: {'center_x': .5}
+                                values: ['English', 'Spanish', 'Italian']
+                                on_text: app.option_selected(in_language.text, 'in')
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            Spinner:
+                                id: out_language
+                                text: 'To language'
+                                size_hint: None, None
+                                size: 200, 50
+                                pos_hint: {'center_x': .5}
+                                values: ['English', 'Spanish', 'Italian']
+                                on_text: app.option_selected(out_language.text, 'out')
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            MDFlatButton:
+                                pos_hint: {'center_x': .5}
+                                text: 'Translate'
+                                on_press: app.change_text('text')
+                    MDCard:
+                        radius: '10dp'
+                        size_hint: 1, .01
+                        pos_hint: {'center_x': .5}
+                        md_bg_color: '#333333'
+                        MDLabel:
+                            id: change
+                            text: ''
+                            halign: 'center'
+            MDBottomNavigationItem:
+                name: 'voice_screen'
+                text: 'Voice'
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: [20, 10, 20, 10]
+                    spacing: '30dp'
+                    MDCard:
+                        radius: '10dp'
+                        size_hint: .5, .01
+                        pos_hint: {'center_x': .5}
+                        md_bg_color: '#333333'
+                        MDLabel:
+                            text: 'Traductor'
+                            halign: 'center'
+                    MDGridLayout:
+                        cols: 1
+                        rows: 3
+                        size_hint: .8, .01
+                        pos_hint: {'center_x': .5}
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            Spinner:
+                                id: in_language
+                                text: 'From language'
+                                size_hint: None, None
+                                size: 200, 50
+                                pos_hint: {'center_x': .5}
+                                values: ['English', 'Spanish', 'Italian']
+                                on_text: app.option_selected(in_language.text, 'in')
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            Spinner:
+                                id: out_language
+                                text: 'To language'
+                                size_hint: None, None
+                                size: 200, 50
+                                pos_hint: {'center_x': .5}
+                                values: ['English', 'Spanish', 'Italian']
+                                on_text: app.option_selected(out_language.text, 'out')
+                        MDAnchorLayout:
+                            anchor_x: 'center'
+                            MDFlatButton:
+                                pos_hint: {'center_x': .5}
+                                text: 'Record'
+                                on_press: app.change_text('mic')
+                    MDCard:
+                        radius: '10dp'
+                        size_hint: 1, .01
+                        pos_hint: {'center_x': .5}
+                        md_bg_color: '#333333'
+                        MDLabel:
+                            id: change
+                            text: ''
+                            halign: 'center'
